@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="kr"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>Momentum</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+	<div id="wrap">
+		<div id="content">
+			<div class="info">
+				<h2 id="clock">00:00:00</h2>
+				<div id="weather">
+					<span class="city"></span>
+					<span class="weather">
+						<span class="text"></span>
+						<span class="icon"></span>
+					</span>
+					<span class="temp"></span>
+				</div>
+			</div>
+			<div class="greeting-wrap">
+				<form id="login-form" class="hidden">
+					<input type="text" required placeholder="What is your name?">
+				</form>
+				<h1 id="greeting" class="hidden"></h1>
+			</div>
+			<form id="todo-form">
+				<input type="text" required placeholder="Write a To Do and Press Enter.">
+			</form>
+			<div class="todo-wrap">
+				<ul id="todo-list"></ul>
+			</div>
+			
+			<div class="quote-wrap">
+				<div id="quote">
+					<span class="text"></span>
+					<span class="author"></span>
+				</div>
+			</div>
+			<!-- <div id="background">
+				<img src="images/original.jfif" alt="">
+			</div> -->
+		</div>
+	</div>
+	<script src="js/greetings.js"></script>
+	<script src="js/clock.js"></script>
+	<script src="js/quote.js"></script>
+	<script src="js/background.js"></script>
+	<script src="js/todo.js"></script>
+	<script src="js/weather.js"></script>
+</body>
+</html>
