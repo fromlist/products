@@ -3,4 +3,6 @@ canvas {
 	height:300px;
 	border:1px solid black;
 }
+.canvas-wrap {display:flex;flex-direction:column;}
+.canvas-wrap input {margin-top:30px;}
 body {display:flex;align-items:center;justify-content:center;height:100vh;}
