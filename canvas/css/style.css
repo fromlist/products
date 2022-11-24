@@ -4,5 +4,5 @@ canvas {
 	border:1px solid black;
 }
 .canvas-wrap {display:flex;flex-direction:column;}
-.canvas-wrap input {margin-top:30px;}
+.canvas-wrap input {margin-top:15px;}
 body {display:flex;align-items:center;justify-content:center;height:100vh;}
