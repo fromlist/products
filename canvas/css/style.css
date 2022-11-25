@@ -1,8 +1,12 @@
+body {display:flex;align-items:center;justify-content:center;height:100vh;}
+
 canvas {
 	width:300px;
 	height:300px;
 	border:1px solid black;
 }
-.canvas-wrap {display:flex;flex-direction:column;}
-.canvas-wrap input {margin-top:15px;}
-body {display:flex;align-items:center;justify-content:center;height:100vh;}
+.canvas-wrap {display:flex;flex-direction:column;align-items:center;}
+.canvas-wrap input {margin:15px 0 0;width:100%;}
+
+.colors {display:grid;grid-template-columns: repeat(10, 1fr);margin-top:15px;}
+.colors .color {font-size:0;width:30px;height:30px;border:0;}
