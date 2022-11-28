@@ -80,8 +80,8 @@ function onDoubleClick (event) {
 	const text = textInput.value;
 	if (text !== '') {
 		ctx.save();
-		ctx.lineWidth = 1;
-		ctx.font = `${ctx.lineWidth}px malgun-gothic`
+		// ctx.lineWidth = 1;
+		ctx.font = `${ctx.lineWidth * 20}px malgun-gothic`
 		ctx.fillText(text, event.offsetX, event.offsetY);
 		ctx.restore();
 	}
