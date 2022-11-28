@@ -139,10 +139,12 @@ function onFileChange(event) {
 	const image = new Image();
 	const thumbnail = document.querySelector('.thumbnail img');
 	image.src = url;
-	thumbnail.src = url
+	thumbnail.src = url;
+	thumbnail.style.display = 'block'
 	image.addEventListener('load', function () {
 		ctx.drawImage(image, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
 		fileInput.value = null;
+		
 	});
 }
 
