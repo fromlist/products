@@ -11,13 +11,14 @@ const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
 //canvas init
-const CANVAS_WIDTH = 300;
-const CANVAS_HEIGHT = 300;
+const CANVAS_WIDTH = 600;
+const CANVAS_HEIGHT = 600;
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 
 //line init
 ctx.lineWidth = 1;
+ctx.lineCap = 'round';
 
 //paint init
 let isPainting = false;
@@ -25,25 +26,32 @@ let isFilling = false;
 
 //mode
 const modeChange = document.querySelector('.mode-change');
-const modeBtn = modeChange.querySelector('#fill');
+const modeFill = modeChange.querySelector('#fill');
+const modeDraw = modeChange.querySelector('#draw');
 const modeDestroyBtn = modeChange.querySelector('#destroy');
 const modeEreaseBtn = modeChange.querySelector('#erease');
 
 // file
 const fileInput = document.querySelector('#file');
+const textInput = document.querySelector('#text');
 
+//save
+const save = document.querySelector('#save');
 
 
 // mode fill
-function onModeClick() {
-	if (isFilling) {
-		isFilling = false;
-		modeBtn.innerText = 'fill';
-	} else {
-		isFilling = true;
-		modeBtn.innerText = 'draw';
-	}
+function onModeFill(event) {
+	ctx.restore();
+	isFilling = false;
+	addActiveClass(event);
 }
+
+// mode Draw
+function onModeDraw(event) {
+	isFilling = true;
+	addActiveClass(event);
+}
+
 
 //drag
 function onMove (event) {
@@ -57,14 +65,26 @@ function onMove (event) {
 
 
 // draw start
-function startPainting (event) {
+function startPainting () {
 	isPainting = true;
 	ctx.beginPath();
 }
 
 // draw end
-function cancelPainting (event) {
+function cancelPainting () {
 	isPainting = false;
+}
+
+//double click
+function onDoubleClick (event) {
+	const text = textInput.value;
+	if (text !== '') {
+		ctx.save();
+		ctx.lineWidth = 1;
+		ctx.font = `${ctx.lineWidth}px malgun-gothic`
+		ctx.fillText(text, event.offsetX, event.offsetY);
+		ctx.restore();
+	}
 }
 
 //line width change
@@ -89,43 +109,83 @@ function onColorPallete (event) {
 	color.value = colorValueRgb;
 }
 
+//fill
 function onCanvasClick() {
 	if (isFilling) {
 		ctx.fillRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
-		// ctx.fill()
 	}
 }
 
+//destroy
 function onDestroyClick() {
+	ctx.save();
 	ctx.fillStyle = 'white';
 	ctx.fillRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
+	ctx.restore();
 }
 
-function onEreaseClick() {
+//erease
+function onEreaseClick(event) {
+	ctx.save();
 	ctx.strokeStyle = 'white';
 	isFilling = false;
+	addActiveClass(event);
 }
+
+//image add
 function onFileChange(event) {
-	const file = event.target.files[0]
+	const file = event.target.files[0];
 	const url = URL.createObjectURL(file);
 	const image = new Image();
+	const thumbnail = document.querySelector('.thumbnail img');
 	image.src = url;
+	thumbnail.src = url
 	image.addEventListener('load', function () {
 		ctx.drawImage(image, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+		fileInput.value = null;
 	});
 }
-canvas.onmousemove
+
+//save
+function onSaveClick () {
+	const url = canvas.toDataURL()
+	const anchor = document.createElement('a')
+	anchor.href = url;
+	anchor.download = 'myDrawing.png';
+	anchor.click();
+}
+
+function addActiveClass (event) {
+	event.target.classList.add('active');
+	for (let i = 0; i <= siblings(event.target).length - 1; i++) {
+		siblings(event.target)[i].classList.remove('active');
+	}
+}
+
+function siblings(t) {
+	var children = t.parentElement.children;
+	var tempArr = [];
+  
+	for (var i = 0; i < children.length; i++) {
+	  tempArr.push(children[i]);
+	}
+  
+	return tempArr.filter(function(e){
+	  return e != t;
+	});
+}
+
+
 canvas.addEventListener('click', onCanvasClick);
 canvas.addEventListener('mousemove', onMove);
 canvas.addEventListener('mousedown', startPainting);
 canvas.addEventListener('mouseup', cancelPainting);
 canvas.addEventListener('mouseleave', cancelPainting);
+canvas.addEventListener('dblclick', onDoubleClick)
 
 lineWidth.addEventListener('change', onlineWidthChange)
 color.addEventListener('change', onColorChange)
-// colorPallete.addEventListener('click', onColorChange)
 colorPallete.forEach(color => color.addEventListener('click', onColorPallete))
-console.log(colorPallete)
 
 function componentToHex(c) {
 	var hex = c.toString(16);
@@ -135,7 +195,9 @@ function rgbToHex(r, g, b) {
 	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
-modeBtn.addEventListener('click', onModeClick);
+modeFill.addEventListener('click', onModeFill);
+modeDraw.addEventListener('click', onModeDraw);
 modeDestroyBtn.addEventListener('click', onDestroyClick)
 modeEreaseBtn.addEventListener('click', onEreaseClick)
 fileInput.addEventListener('change', onFileChange)
+save.addEventListener('click', onSaveClick)

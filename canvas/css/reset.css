@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+:root {
+	--black:#222222;
+	--white:#FFFFFF;
+	--blue:#2456DF;
+	--lblue:#508AFF;
+	--tblue:#2E72ED;
+	--bgblue:#F3F6FE;
+	--red:#EF5050;
+	--orange:#F86638;
+	--yellow:#FADB4F;
+	--gray3:#454545;
+	--gray2:#949494;
+	--gray1:#E3E3E3;
+	--gray0:#F6F6F6;
+	--cubic:cubic-bezier(0.42, 0, 0.52, 1.15);
+}
+/* Reset */
+body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,input,textarea,i,u,em,strong,b,a,button,th,td,code{margin:0;padding:0;}
+h1,h2,h3,h4,h5,strong,b {font-weight:700;}
+h1,h2,h3,h4,h5,h6 {font-size:inherit;}
+*,*:before,*:after {box-sizing:border-box;}
+img,fieldset,iframe,button{border:0;}
+ul,li{list-style:none}
+input:not([type="radio"]),input:not([type="checkbox"]) {}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {display:none;}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+input[type=number] {-moz-appearance:textfield;}
+input,select,button,label,textarea,a {}
+input,textarea,button {font-size:inherit;font-family:inherit;color:inherit;line-height:inherit;}
+input[type="password"] {font-family:inherit;}
+select {font-size:inherit;color:inherit;line-height:inherit;font-family:inherit;}
+input:disabled,select:disabled,button:disabled,label:disabled,a:disabled,textarea:disabled {cursor:default;}
+textarea {resize:none;}
+label,button,select,a{cursor:pointer;}
+table{border-collapse:separate;border-spacing:0;width:100%;table-layout:auto;}
+legend {overflow:hidden;visibility:hidden;font-size:0.1rem;text-indent:-999rem;margin-top:-0.1rem;width:0.1rem;height:0.1rem;}
+a {text-decoration:none;color:inherit;}
+a:visited {text-decoration:none;}
+a:hover,
+a:focus {text-decoration:none;}
+button {background:none;font-family:inherit;overflow:visible;text-align:inherit;font-weight:inherit;}
+em {font-style:normal;font-weight:700;}
+i {font-style:normal;}
+code {display:inline;color:inherit;font-size:inherit;line-height:inherit;font-family:inherit;font-weight:inherit;}
+pre {color:inherit;font-size:inherit;line-height:inherit;font-family:inherit;font-weight:inherit;margin:0;}
+table caption {position:absolute;text-indent:-999rem;width:0;height:0;left: 0;top: 0;}
+html {-webkit-text-size-adjust:none;}
+body {word-break:keep-all;font-size:14px;line-height:1.5;font-family:'Noto Sans Kr';font-weight:400;color:var(--black);letter-spacing:-0.06rem;}
