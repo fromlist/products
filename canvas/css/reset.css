@@ -52,3 +52,4 @@ pre {color:inherit;font-size:inherit;line-height:inherit;font-family:inherit;fon
 table caption {position:absolute;text-indent:-999rem;width:0;height:0;left: 0;top: 0;}
 html {-webkit-text-size-adjust:none;}
 body {word-break:keep-all;font-size:14px;line-height:1.5;font-family:'Noto Sans Kr';font-weight:400;color:var(--black);letter-spacing:-0.06rem;}
+.blind {visibility:hidden !important;position:absolute !important;color:transparent !important;opacity:0 !important;width:1px !important;height:1px !important;font-size:1px !important;text-indent:-9999px !important;}
