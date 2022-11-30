@@ -53,6 +53,15 @@
 			<button type="button" class="btn-outline-blue" id="save">Save</button>
 		</div>
 	</div>
-	<script src="js/app.js"></script>
+	<!-- <script src="js/app.js"></script> -->
+	<script>
+		window.addEventListener('load', function() {
+			const message = { height: document.body.scrollHeight, width: document.body.scrollWidth, url: document.location.href };   
+			console.log(message)
+			window.top.postMessage(message, "http://fromlist.iptime.org/phiphicola.github.io/");
+		});
+
+		
+	</script>
 </body>
 </html>
