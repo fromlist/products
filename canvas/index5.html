@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Meme Maker</title>
+</head>
+<body>
+	<div id="wrap">
+		<div class="canvas-wrap">
+			<div class="colors">
+				<button type="button" class="color" style="background:rgba(205,132,241,1.0);"><span>Bright Lilac</span></button>
+				<button type="button" class="color" style="background:rgba(255,204,204,1.0);"><span>Pretty Please</span></button>
+				<button type="button" class="color" style="background:rgba(255,77,77,1.0);"><span>Light Red</span></button>
+				<button type="button" class="color" style="background:rgba(255,175,64,1.0);"><span>Mandarin Sorbet</span></button>
+				<button type="button" class="color" style="background:rgba(255,250,101,1.0);"><span>Unmellow Yellow</span></button>
+				<button type="button" class="color" style="background:rgba(197,108,240,1.0);"><span>Light Purple</span></button>
+				<button type="button" class="color" style="background:rgba(255,184,184,1.0);"><span>Young Salmon</span></button>
+				<button type="button" class="color" style="background:rgba(255,56,56,1.0);"><span>Red Orange</span></button>
+				<button type="button" class="color" style="background:rgba(255,159,26,1.0);"><span>Radiant Yellow</span></button>
+				<button type="button" class="color" style="background:rgba(255,242,0,1.0);"><span>Dorn Yellow</span></button>
+				<button type="button" class="color" style="background:rgba(50,255,126,1.0);"><span>Wintergreen</span></button>
+				<button type="button" class="color" style="background:rgba(126,255,245,1.0);"><span>Electric Blue</span></button>
+				<button type="button" class="color" style="background:rgba(24,220,255,1.0);"><span>Neon Blue</span></button>
+				<button type="button" class="color" style="background:rgba(125,95,255,1.0);"><span>Light Slate Blue</span></button>
+				<button type="button" class="color" style="background:rgba(75,75,75,1.0);"><span>Shadowed Steel</span></button>
+				<button type="button" class="color" style="background:rgba(58,227,116,1.0);"><span>Weird Green</span></button>
+				<button type="button" class="color" style="background:rgba(103,230,220,1.0);"><span>Hammam Blue</span></button>
+				<button type="button" class="color" style="background:rgba(23,192,235,1.0);"><span>Spiro Disco Ball</span></button>
+				<button type="button" class="color" style="background:rgba(113,88,226,1.0);"><span>Light Indigo</span></button>
+				<button type="button" class="color" style="background:rgba(61,61,61,1.0);"><span>Baltic Sea</span></button>
+			</div>
+			<canvas></canvas>
+			<div class="paint">
+				<input id="line-width" type="range" min="1" max="10" value="1">
+				<input id="color" type="color">
+				<div class="mode-change">
+					<button type="button" class="btn-outline-blue active" id="fill">Fill</button>
+					<button type="button" class="btn-outline-blue" id="draw">draw</button>
+					<button type="button" class="btn-outline-blue" id="destroy">Destroy</button>
+					<button type="button" class="btn-outline-blue" id="erease">Erease</button>
+					<label for="file" class="btn-outline-blue">Upload Photo</label>
+					<div class="thumbnail"><img src="" alt="" style="display:none;"></div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<label for="file" class="blind"><input type="file" accept="image/*" id="file"></label>
+			<input type="text" placeholder="Write and the double click" id="text">
+			<button type="button" class="btn-outline-blue" id="save">Save</button>
+		</div>
+	</div>
+	<script src="js/app.js"></script>
+	<script type='text/javascript'>
+		window.addEventListener('load', function() {
+			const message = {
+				height: document.body.scrollHeight, 
+				width: document.body.scrollWidth,
+				url: document.location.href
+			};
+			console.log(message)
+			try{
+				if(window.top!=undefined) window.top.postMessage(message, "http://127.0.0.1:5501/");
+			}catch(e){};
+		});
+	</script>
+</body>
+</html>
