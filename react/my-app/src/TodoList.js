@@ -20,6 +20,10 @@ function TodoList() {
         <input value={todo} onChange={onChange} type="text" placeholder="Write yout to do..." />
         <button type="submit">Add To do</button>
       </form>
+      <hr />
+      <ul>
+        {todos.map((item, index) => <li key={index}>{item}</li>)}
+      </ul>
     </div>
   );
 }
