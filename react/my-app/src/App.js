@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/movie">
+        <Route path="/movie/:movieName">
           <Detail />
         </Route>
         <Route path="/">
