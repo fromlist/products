@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import styles from "./MovieDetail.module.css";
 
 function MovieDetail({ tit, img, desc, genres, url }) {
   return (
-    <div>
+    <div className={styles.movieDetail}>
       <div>
         <h1>{tit}</h1>
         <img src={img} alt="" />
@@ -10,9 +11,9 @@ function MovieDetail({ tit, img, desc, genres, url }) {
         {genres ? (
           <ul>{genres && genres.map((g) => <li key={g}>{g}</li>)}</ul>
         ) : null}
-        <Link to={`${url}`}>View More</Link>
+        <a href={`${url}`} target="_blank" rel="noreferrer">View More</a>
       </div>
-      <div>
+      <div className={styles.goBack}>
         <Link to={`/`}>Go back</Link>
       </div>
     </div>
